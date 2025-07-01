@@ -30,7 +30,8 @@ fn find_crates(collector: &mut Vec<PathBuf>, base: PathBuf) {
         .filter(|entry| {
             entry.is_dir()
                 && entry
-                    .file_name().is_none_or(|name| name.to_string_lossy() != "src")
+                    .file_name()
+                    .is_none_or(|name| name.to_string_lossy() != "src")
         })
         .for_each(|entry| find_crates(collector, entry));
 }
