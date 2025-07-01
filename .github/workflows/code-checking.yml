@@ -1,0 +1,39 @@
+name: common
+
+on:
+  merge_group:
+    types: [checks_requested]
+  workflow_call:
+  pull_request:
+  push:
+    branches:
+      - main
+
+env:
+  RUSTFLAGS: "-Dwarnings"
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}-code-checking
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt
+      - run: cargo fmt --all --check
+
+  check:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}-code-checking
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - run: cargo check --tests --workspace
+      - run: cargo clippy --all-targets --all-features --tests
