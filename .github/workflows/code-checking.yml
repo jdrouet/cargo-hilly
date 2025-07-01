@@ -15,9 +15,6 @@ env:
 jobs:
   format:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.ref }}-code-checking
-      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@nightly
@@ -27,9 +24,6 @@ jobs:
 
   check:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.ref }}-code-checking
-      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
