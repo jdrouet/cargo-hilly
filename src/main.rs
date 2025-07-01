@@ -3,7 +3,7 @@ use std::path::{Path, PathBuf};
 
 /// Checks if the file is a rust file
 fn is_rust_file(file: &Path) -> bool {
-    file.extension().map_or(false, |ext| ext == "rs")
+    file.extension().is_some_and(|ext| ext == "rs")
 }
 
 /// Returns the filename without the extension
@@ -29,9 +29,8 @@ fn find_crates(collector: &mut Vec<PathBuf>, base: PathBuf) {
         .map(|entry| entry.path())
         .filter(|entry| {
             entry.is_dir()
-                && !entry
-                    .file_name()
-                    .map_or(false, |name| name.to_string_lossy() == "src")
+                && entry
+                    .file_name().is_none_or(|name| name.to_string_lossy() != "src")
         })
         .for_each(|entry| find_crates(collector, entry));
 }
