@@ -1,7 +1,11 @@
 [package]
 name = "cargo-hilly"
+description = "Utility for Rust projects that helps migrate flat module files (e.g., \"foo.rs\") into the more idiomatic Rust module layout."
+authors = ["Jeremie Drouet <jeremie.drouet@gmail.com>"]
 version = "0.1.0"
 edition = "2024"
+readme = "readme.md"
+license = "MIT"
 
 [dependencies]
 
