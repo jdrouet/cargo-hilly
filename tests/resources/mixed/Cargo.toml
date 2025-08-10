@@ -1,0 +1,9 @@
+[package]
+name = "cargo-hilly-example-mixed"
+description = "An example project with mixed module organisation."
+authors = ["Jeremie Drouet <jeremie.drouet@gmail.com>"]
+version = "0.1.0"
+license = "MIT"
+publish = false
+
+[dependencies]
