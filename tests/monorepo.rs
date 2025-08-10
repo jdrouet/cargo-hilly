@@ -25,7 +25,7 @@ fn prepare_directory() -> std::io::Result<PathBuf> {
 
 fn create_crate(root: &Path) -> std::io::Result<()> {
     for section in ["src", "src/foo", "src/bar"] {
-        std::fs::create_dir_all(&root.join(section))?;
+        std::fs::create_dir_all(root.join(section))?;
     }
     std::fs::write(
         root.join("Cargo.toml"),
