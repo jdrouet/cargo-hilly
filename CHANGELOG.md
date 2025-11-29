@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2](https://github.com/jdrouet/cargo-hilly/compare/v0.1.1...v0.1.2) - 2025-11-29
+
+### Other
+
+- *(deps)* Bump actions/checkout from 5 to 6 ([#6](https://github.com/jdrouet/cargo-hilly/pull/6))
+- *(deps)* Bump actions/checkout from 4 to 5 ([#3](https://github.com/jdrouet/cargo-hilly/pull/3))
+- *(deps)* Bump amannn/action-semantic-pull-request from 5 to 6 ([#4](https://github.com/jdrouet/cargo-hilly/pull/4))
+
 ## [0.1.1](https://github.com/jdrouet/cargo-hilly/compare/v0.1.0...v0.1.1) - 2025-08-10
 
 ### Other
